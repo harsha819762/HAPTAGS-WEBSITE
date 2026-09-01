@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haptags LLP — Website Development, App Development, Digital Marketing, Interiors & Real Estate</title>
+  <meta name="description"
+    content="Haptags LLP delivers premier Website Development, cutting-edge Mobile App Development, high-impact Digital Marketing, bespoke Luxury Interior Design, and expert Real Estate Agency advisory.">
+  <meta name="keywords"
+    content="Haptags, Haptags LLP, Website Development, App Development, Digital Marketing, Social Media Marketing, Interior Design, Real Estate Agency, Luxury Interiors, Real Estate Advisory">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title"
+    content="Haptags LLP — Web Development, Mobile Apps, Digital Marketing, Interiors & Real Estate">
+  <meta property="og:description"
+    content="Experience the next dimension with Haptags LLP: Website Development, Mobile Apps, Digital Marketing, Luxury Interiors & Real Estate Agency.">
+  <meta property="og:image" content="assets/images/real-estate.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logos/haptags-logo.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body class="stardust-bg">
+
+  <!-- Custom Antigravity Dynamic Cursor -->
+  <div id="custom-cursor" class="custom-cursor">
+    <div class="custom-cursor-dot"></div>
+    <span id="custom-cursor-text">✦ Explore</span>
+  </div>
+
+  <!-- Background Ambient Glows -->
+  <div class="ambient-glow glow-blue"></div>
+  <div class="ambient-glow glow-purple"></div>
+  <div class="ambient-glow glow-amber"></div>
+
+  <!-- =========================================================================
+       1. NAVIGATION BAR
+       ========================================================================= -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <!-- Official Haptags Brand Logo -->
+      <a href="#hero" class="brand-logo" data-cursor="✦ Haptags Home">
+        <img src="assets/logos/haptags-logo.png" alt="Haptags" class="brand-logo-img">
+        <span class="logo-tag">LLP</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu">
+        <!-- Services Dropdown -->
+        <li class="nav-item has-dropdown">
+          <button class="nav-link" aria-haspopup="true">
+            <span>Services</span>
+            <svg class="dropdown-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="mega-dropdown" style="max-width: 780px;">
+            <div class="dropdown-grid">
+              <a href="#web-development" class="dropdown-card" data-cursor="✦ Website Dev">
+                <div class="dropdown-card-icon" style="color: var(--brand-blue);">🌐</div>
+                <div class="dropdown-card-content">
+                  <h5>Website Development</h5>
+                  <p>Next.js, modern fullstack web apps & cloud infrastructure.</p>
+                </div>
+              </a>
+              <a href="#app-development" class="dropdown-card" data-cursor="✦ App Dev">
+                <div class="dropdown-card-icon" style="color: var(--brand-purple);">📱</div>
+                <div class="dropdown-card-content">
+                  <h5>App Development</h5>
+                  <p>Native & cross-platform iOS & Android mobile applications.</p>
+                </div>
+              </a>
+              <a href="#digital-marketing" class="dropdown-card" data-cursor="✦ Marketing">
+                <div class="dropdown-card-icon" style="color: var(--brand-rose);">📈</div>
+                <div class="dropdown-card-content">
+                  <h5>Digital Marketing</h5>
+                  <p>Performance ads, 360° social growth & lead generation funnels.</p>
+                </div>
+              </a>
+              <a href="#interior-design" class="dropdown-card" data-cursor="✦ Interiors">
+                <div class="dropdown-card-icon" style="color: var(--brand-amber);">🛋️</div>
+                <div class="dropdown-card-content">
+                  <h5>Interior Design & Solutions</h5>
+                  <p>Bespoke luxury residences, 3D design & modular styling.</p>
+                </div>
+              </a>
+              <a href="#real-estate" class="dropdown-card" data-cursor="✦ Real Estate" style="grid-column: span 2;">
+                <div class="dropdown-card-icon" style="color: var(--brand-emerald);">🏙️</div>
+                <div class="dropdown-card-content">
+                  <h5>Real Estate Agency & Advisory</h5>
+                  <p>Luxury residential properties, commercial spaces & land acquisition advisory.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="#clients" class="nav-link">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a href="#showcase" class="nav-link">Showcase</a>
+        </li>
+        <li class="nav-item">
+          <a href="#services" class="nav-link">Capabilities</a>
+        </li>
+        <li class="nav-item">
+          <a href="#why-haptags" class="nav-link">About LLP</a>
+        </li>
+      </ul>
+
+      <!-- Action Buttons & Theme Switcher -->
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme" data-cursor="☀️ Toggle Theme">
+          <!-- Icon injected by JS -->
+        </button>
+        <button class="btn btn-secondary btn-compact nav-desktop-btn" data-open-brochure data-cursor="📄 Corporate Deck">
+          <span>Brochure</span>
+        </button>
+        <button class="btn btn-primary btn-compact nav-desktop-btn" data-open-consultation data-cursor="✨ Book Consultation">
+          <span>Consultation</span>
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+        <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Open Menu">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       2. HERO SECTION (Antigravity Interactive Particle Canvas)
+       ========================================================================= -->
+  <section id="hero" class="hero-section">
+    <!-- Antigravity Interactive Particle Physics Canvas (Background Layer) -->
+    <canvas id="antigravity-canvas"></canvas>
+    <div class="hero-vignette-overlay"></div>
+
+    <div class="container hero-content">
+      <!-- Eyebrow Positioning Statement Pill -->
+      <div class="hero-badge-wrap">
+        <div class="hero-eyebrow-pill" data-cursor="✦ Strategy & Spaces">
+          <span class="pill-badge-dot"></span>
+          <span>Digital Engineering, Marketing & Luxury Living Environments</span>
+        </div>
+      </div>
+
+      <!-- Headline: Controlled 4-line mobile typography -->
+      <h1 class="hero-headline">
+        Experience the<br class="hero-m-br">
+        next dimension of<br class="hero-m-br">
+        <span class="hero-gradient-text">digital intelligence<br class="hero-m-br">& physical spaces</span>
+      </h1>
+
+      <!-- Supporting Paragraph -->
+      <p class="hero-subhead">
+        <strong>Haptags LLP</strong> is a premier multi-disciplinary firm delivering cutting-edge
+        <strong>Website Development</strong>, high-performance <strong>Mobile App Development</strong>,
+        ROI-focused <strong>Digital Marketing</strong>, bespoke luxury <strong>Interior Design</strong>,
+        and trusted <strong>Real Estate Agency</strong> advisory.
+      </p>
+
+      <!-- CTA Hierarchy: Primary dominant + Secondary clear -->
+      <div class="hero-cta-group">
+        <button class="btn btn-primary-cta" data-open-consultation data-cursor="✨ Schedule Call">
+          <span>Request Consultation</span>
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+        <a href="#services" class="btn btn-secondary-cta" data-cursor="✦ Discover Services">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          <span>Explore All 5 Services</span>
+        </a>
+      </div>
+
+      <!-- Quick Service Indicator Strip (Antigravity Pill Bar) -->
+      <div class="hero-features-strip">
+        <div class="strip-pill-grid">
+          <a href="#web-development" class="strip-item" data-cursor="✦ Web Dev">
+            <span class="strip-icon-badge badge-blue">🌐</span>
+            <span>Website Development</span>
+            <svg class="strip-item-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#app-development" class="strip-item" data-cursor="✦ App Dev">
+            <span class="strip-icon-badge badge-purple">📱</span>
+            <span>App Development</span>
+            <svg class="strip-item-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#digital-marketing" class="strip-item" data-cursor="✦ Marketing">
+            <span class="strip-icon-badge badge-rose">📈</span>
+            <span>Digital Marketing</span>
+            <svg class="strip-item-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#interior-design" class="strip-item" data-cursor="✦ Interiors">
+            <span class="strip-icon-badge badge-amber">🛋️</span>
+            <span>Interior Design</span>
+            <svg class="strip-item-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#real-estate" class="strip-item" data-cursor="✦ Real Estate">
+            <span class="strip-icon-badge badge-emerald">🏙️</span>
+            <span>Real Estate Agency</span>
+            <svg class="strip-item-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. CLIENT TRUST & LOGO MARQUEE (Full Color Logos)
+       ========================================================================= -->
+  <section id="clients" class="client-trust-section">
+    <div class="container">
+      <div class="client-trust-header">
+        <span class="client-trust-tag">Trusted by Leading Enterprises, Developers & Institutions</span>
+      </div>
+    </div>
+
+    <div class="marquee-wrapper">
+      <!-- First Set of Logos -->
+      <div class="marquee-content">
+        <div class="client-logo-card" data-cursor="✦ Citadel Properties">
+          <img src="assets/logos/clients/citadel.jpeg" alt="Citadel Properties LLP" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ Haps-Mart">
+          <img src="assets/logos/clients/hapsmart.jpeg" alt="Haps-Mart Fresh & Organic" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ CBIT">
+          <img src="assets/logos/clients/cbit.jpeg" alt="CBIT" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ CMR">
+          <img src="assets/logos/clients/cmr.jpeg" alt="CMR" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ KNBR">
+          <img src="assets/logos/clients/knbr.jpeg" alt="KNBR" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ LVS">
+          <img src="assets/logos/clients/lvs.jpeg" alt="LVS" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ CMC">
+          <img src="assets/logos/clients/cmc.jpeg" alt="CMC" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ Nadile Films">
+          <img src="assets/logos/clients/nadile-films.jpeg" alt="Nadile Films" class="client-logo-img">
+        </div>
+        <div class="client-logo-card" data-cursor="✦ Vasista">
+          <img src="assets/logos/clients/vasista.jpeg" alt="Vasista" class="client-logo-img">
+        </div>
+      </div>
+
+      <!-- Second Duplicate Set for Infinite Smooth Loop -->
+      <div class="marquee-content" aria-hidden="true">
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/citadel.jpeg" alt="Citadel Properties LLP" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/hapsmart.jpeg" alt="Haps-Mart Fresh & Organic" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/cbit.jpeg" alt="CBIT" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/cmr.jpeg" alt="CMR" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/knbr.jpeg" alt="KNBR" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/lvs.jpeg" alt="LVS" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/cmc.jpeg" alt="CMC" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/nadile-films.jpeg" alt="Nadile Films" class="client-logo-img">
+        </div>
+        <div class="client-logo-card">
+          <img src="assets/logos/clients/vasista.jpeg" alt="Vasista" class="client-logo-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. INTERACTIVE SHOWCASE SECTION (Antigravity Video / Stage Parity)
+       ========================================================================= -->
+  <section id="showcase" class="showcase-section">
+    <div class="container">
+      <div class="showcase-container">
+        <!-- Showcase Navigation Bar -->
+        <div class="showcase-header">
+          <div class="showcase-tabs">
+            <button class="showcase-tab-btn active" data-showcase="webdev">🌐 Website Development</button>
+            <button class="showcase-tab-btn" data-showcase="appdev">📱 App Development</button>
+            <button class="showcase-tab-btn" data-showcase="marketing">📈 Digital Marketing</button>
+            <button class="showcase-tab-btn" data-showcase="interior">🛋️ Luxury Interiors</button>
+            <button class="showcase-tab-btn" data-showcase="realestate">🏙️ Real Estate Agency</button>
+          </div>
+          <div class="pill-badge" style="background: var(--bg-card-solid);">
+            <span class="pill-badge-dot" style="background: var(--brand-emerald);"></span>
+            <span>Live Interactive Portfolio</span>
+          </div>
+        </div>
+
+        <!-- Showcase Media Viewport -->
+        <div class="showcase-media-frame">
+          <img id="showcase-image" class="showcase-image" src="assets/images/real-estate.jpg"
+            alt="Haptags Digital Engineering, Marketing and Real Estate">
+
+          <div class="showcase-media-overlay">
+            <div class="pill-badge"
+              style="background: rgba(0,0,0,0.6); color: #fff; border-color: rgba(255,255,255,0.2);">
+              <span>✦ Haptags Core Competency</span>
+            </div>
+
+            <button class="showcase-play-trigger" data-open-consultation data-cursor="▶ Inquire Service">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <span>Explore Portfolio Details</span>
+            </button>
+
+            <div>
+              <h3 id="showcase-title" style="color: #ffffff; margin-bottom: 8px; font-size: 1.8rem;">
+                High-Performance Website Development
+              </h3>
+              <p id="showcase-desc" style="color: rgba(255,255,255,0.85); max-width: 680px; font-size: 0.98rem;">
+                Crafting blazing-fast modern web applications, Next.js architecture, interactive digital experiences,
+                and enterprise-grade web platforms.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Showcase Real-Time Metrics Bar -->
+        <div id="showcase-stats-bar" class="showcase-stats-bar">
+          <div class="stat-item">
+            <h4 class="text-gradient">&lt;100ms</h4>
+            <p>Global Page Load Speed</p>
+          </div>
+          <div class="stat-item">
+            <h4 class="text-gradient">100%</h4>
+            <p>Responsive & SEO Optimized</p>
+          </div>
+          <div class="stat-item">
+            <h4 class="text-gradient">99.99%</h4>
+            <p>Uptime & Cloud SLA</p>
+          </div>
+          <div class="stat-item">
+            <h4 class="text-gradient">120+</h4>
+            <p>Web Applications Built</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. BENTO GRID MATRIX (Balanced 5 Services)
+       ========================================================================= -->
+  <section id="services" class="bento-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Core Services</span>
+        <h2>Architected for digital speed & physical elegance</h2>
+        <p>Combining state-of-the-art web and mobile engineering with high-ROI digital marketing, bespoke interior
+          aesthetics, and premier real estate consultancy.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- 1. Website Development Card (Span 6) -->
+        <div id="web-development" class="bento-card col-span-6 interactive-card">
+          <div>
+            <div class="bento-card-badge">🌐 Digital Engineering</div>
+            <h3 class="bento-card-title">Modern Website & Web Application Development</h3>
+            <p class="bento-card-desc">
+              We design and build ultra-fast, modern web applications leveraging Next.js, React, TypeScript, and cloud
+              backends. From high-converting corporate portals to bespoke SaaS platforms.
+            </p>
+            <ul class="bento-feature-list">
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Modern Next.js 15 & React Fullstack Architecture</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Automated CI/CD, Global CDN Deployment & Sub-100ms Latency</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Built-in Search Engine Optimization (SEO) & Semantic UI</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Rich Web Application Browser Window Mockup -->
+          <div class="browser-ui-preview">
+            <div class="browser-titlebar">
+              <div class="browser-dots">
+                <div class="browser-dot dot-red"></div>
+                <div class="browser-dot dot-yellow"></div>
+                <div class="browser-dot dot-green"></div>
+              </div>
+              <div class="browser-address">
+                <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span>https://app.haptags.com/analytics/live</span>
+              </div>
+            </div>
+            <div class="browser-body">
+              <div class="browser-kpi-row">
+                <div class="browser-kpi">
+                  <div class="browser-kpi-label">Performance</div>
+                  <div class="browser-kpi-val" style="color: #34d399;">99.8%</div>
+                </div>
+                <div class="browser-kpi">
+                  <div class="browser-kpi-label">Speed Index</div>
+                  <div class="browser-kpi-val" style="color: #60a5fa;">0.6s</div>
+                </div>
+                <div class="browser-kpi">
+                  <div class="browser-kpi-label">Cloud SLA</div>
+                  <div class="browser-kpi-val" style="color: #fbbf24;">99.99%</div>
+                </div>
+              </div>
+              <div class="browser-chart-area">
+                <div class="browser-chart-header">
+                  <span>⚡ Real-Time Inbound Traffic & Web Analytics</span>
+                  <span style="color: #34d399; font-size: 0.7rem;">● Live Global Stream</span>
+                </div>
+                <!-- SVG Visual Sparkline Chart -->
+                <svg class="browser-sparkline" viewBox="0 0 400 60" fill="none" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+                      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 45 Q 50 15, 100 35 T 200 15 T 300 28 T 400 10 L 400 60 L 0 60 Z" fill="url(#chartGrad)" />
+                  <path d="M0 45 Q 50 15, 100 35 T 200 15 T 300 28 T 400 10" stroke="#60a5fa" stroke-width="2.5"
+                    stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. App Development Card (Span 6) -->
+        <div id="app-development" class="bento-card col-span-6 interactive-card">
+          <div>
+            <div class="bento-card-badge">📱 Mobile Engineering</div>
+            <h3 class="bento-card-title">iOS & Android Mobile App Development</h3>
+            <p class="bento-card-desc">
+              Cross-platform and native mobile apps built with React Native and Flutter, featuring intuitive
+              micro-interactions, real-time push notifications, and offline-first capabilities.
+            </p>
+            <ul class="bento-feature-list">
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Single Codebase for iOS & Android with Native Performance</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Biometric Authentication, Push Alerts & In-App Payments</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Seamless App Store & Google Play Store Publishing</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Rich Smartphone Mobile App Mockup -->
+          <div class="phone-ui-preview">
+            <div class="phone-header-bar">
+              <span>9:41</span>
+              <div class="phone-dynamic-island"></div>
+              <div style="display:flex; gap:4px; align-items:center;">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.57 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z" />
+                </svg>
+                <span>5G</span>
+                <span>100%</span>
+              </div>
+            </div>
+            <div class="phone-body">
+              <div class="phone-notification-pill">
+                <span style="font-size: 1rem;">🚀</span>
+                <span>Haptags Mobile Engine • 4.9★ App Store Rating</span>
+              </div>
+              <div class="phone-app-card">
+                <div>
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #ffffff;">Mobile Cloud Sync</div>
+                  <div style="font-size: 0.68rem; color: #8b949e;">React Native + Flutter Runtime</div>
+                </div>
+                <div
+                  style="background: rgba(34, 197, 94, 0.2); color: #4ade80; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 99px;">
+                  Active • 12ms
+                </div>
+              </div>
+              <div class="phone-action-row">
+                <div class="phone-btn"
+                  style="background: rgba(59, 130, 246, 0.2); border-color: rgba(96, 165, 250, 0.4); color: #93c5fd;">
+                  ⚡ Instant Deploy
+                </div>
+                <div class="phone-btn"
+                  style="background: rgba(168, 85, 247, 0.2); border-color: rgba(192, 132, 252, 0.4); color: #d8b4fe;">
+                  🔒 Biometric Auth
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Digital Marketing Card (Span 4) -->
+        <div id="digital-marketing" class="bento-card col-span-4 interactive-card">
+          <div>
+            <div class="bento-card-badge">📈 Growth & Marketing</div>
+            <h3 class="bento-card-title" style="font-size: 1.35rem;">Digital & Social Media Marketing</h3>
+            <p class="bento-card-desc" style="font-size: 0.9rem;">
+              Targeted customer acquisition, 360° branding, high-conversion real estate buyer lead funnels, and
+              cinematic video campaigns.
+            </p>
+            <ul class="bento-feature-list" style="margin-bottom: 16px;">
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Meta, Google & LinkedIn Ad Funnels</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Viral Short-Form Video & Motion Design</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>High-ROI Lead Generation Funnels</span>
+              </li>
+            </ul>
+          </div>
+          <div
+            style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 16px; border: 1px solid var(--border-card); margin-top: auto;">
+            <div
+              style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700; margin-bottom:8px;">
+              <span>Campaign ROI</span>
+              <span style="color:var(--brand-emerald);">+340% YoY Growth</span>
+            </div>
+            <div style="display:flex; gap:4px; height:18px; align-items:flex-end;">
+              <div style="flex:1; background:var(--brand-blue); height:40%; border-radius:3px;"></div>
+              <div style="flex:1; background:var(--brand-blue); height:60%; border-radius:3px;"></div>
+              <div style="flex:1; background:var(--brand-purple); height:80%; border-radius:3px;"></div>
+              <div style="flex:1; background:var(--brand-rose); height:100%; border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Interior Design Card (Span 4) -->
+        <div id="interior-design" class="bento-card col-span-4 interactive-card">
+          <div>
+            <div class="bento-card-badge">🛋️ Interior Architecture</div>
+            <h3 class="bento-card-title" style="font-size: 1.35rem;">Luxury Interior Design & Solutions</h3>
+            <p class="bento-card-desc" style="font-size: 0.9rem;">
+              Bespoke luxury residences, modular German/Italian kitchens, architectural lighting design, and
+              photorealistic 3D virtual walkthroughs.
+            </p>
+            <ul class="bento-feature-list" style="margin-bottom: 16px;">
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Photorealistic 3D Spatial Renders</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Bespoke Modular Kitchens & Styling</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>10-Year Craftsmanship Guarantee</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bento-card-preview" style="margin-top: auto;">
+            <img class="bento-card-img" style="height: 150px;" src="assets/images/interior-design.jpg"
+              alt="Luxury Living Room Interior Design">
+          </div>
+        </div>
+
+        <!-- 5. Real Estate Agency Card (Span 4 - Compact Balanced Size) -->
+        <div id="real-estate" class="bento-card col-span-4 interactive-card">
+          <div>
+            <div class="bento-card-badge">🏙️ Real Estate Consultancy</div>
+            <h3 class="bento-card-title" style="font-size: 1.35rem;">Real Estate Agency & Advisory</h3>
+            <p class="bento-card-desc" style="font-size: 0.9rem;">
+              End-to-end real estate agency services for luxury residential villas, commercial office spaces, high-yield
+              land parcels, and investment advisory.
+            </p>
+            <ul class="bento-feature-list" style="margin-bottom: 16px;">
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Prime Residential Villas & Penthouses</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>100% Verified Titles & Due Diligence</span>
+              </li>
+              <li>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Commercial Tech Parks & Land Advisory</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bento-card-preview" style="margin-top: auto;">
+            <img class="bento-card-img" style="height: 150px;" src="assets/images/real-estate.jpg"
+              alt="Haptags Luxury Architecture & Real Estate">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. WHY HAPTAGS / THE ECOSYSTEM
+       ========================================================================= -->
+  <section id="why-haptags" class="bento-section" style="padding-top: 40px; background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">The Haptags Advantage</span>
+        <h2>Why clients choose Haptags LLP</h2>
+        <p>Unifying world-class digital engineering and marketing with luxury physical spaces under a single high-trust
+          brand.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card col-span-4 interactive-card">
+          <div class="bento-card-badge">⚡ Modern Tech & Marketing</div>
+          <h4 style="font-size: 1.25rem; margin-bottom: 8px;">Blazing Web, Apps & Growth</h4>
+          <p style="font-size: 0.92rem; color: var(--text-secondary);">
+            We build web and mobile applications using Next.js and React Native, amplified with 360° performance digital
+            marketing for rapid customer acquisition.
+          </p>
+        </div>
+
+        <div class="bento-card col-span-4 interactive-card">
+          <div class="bento-card-badge">🛋️ Bespoke Luxury Craft</div>
+          <h4 style="font-size: 1.25rem; margin-bottom: 8px;">Bespoke Interior Excellence</h4>
+          <p style="font-size: 0.92rem; color: var(--text-secondary);">
+            Our interior architects deliver luxury residential and corporate spaces from 3D concept to installation with
+            a 10-year craftsmanship guarantee.
+          </p>
+        </div>
+
+        <div class="bento-card col-span-4 interactive-card">
+          <div class="bento-card-badge">🏙️ Verified Real Estate</div>
+          <h4 style="font-size: 1.25rem; margin-bottom: 8px;">High-Yield Property Advisory</h4>
+          <p style="font-size: 0.92rem; color: var(--text-secondary);">
+            Our agency curates vetted prime land, luxury villas, and commercial assets with full legal due diligence and
+            maximum growth potential.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. CLIENT TRUST & TESTIMONIALS
+       ========================================================================= -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Client Reviews</span>
+        <h2>Built on uncompromising trust & precision</h2>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card interactive-card">
+          <p class="testimonial-quote">
+            "Haptags engineered our company's web app and executed our digital marketing campaigns. In 60 days, our
+            digital inbound leads jumped over 300%!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AK</div>
+            <div class="author-info">
+              <h6>Aman Kapoor</h6>
+              <p>Founder & CEO, CloudMatrix Labs</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card interactive-card">
+          <p class="testimonial-quote">
+            "Their interior design team transformed our duplex penthouse with stunning 3D renders and flawless
+            execution. Truly premium craftsmanship."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #059669, #0891b2);">RM</div>
+            <div class="author-info">
+              <h6>Radhika Menon</h6>
+              <p>Homeowner & Art Collector</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card interactive-card">
+          <p class="testimonial-quote">
+            "Haptags Real Estate Agency helped us acquire a prime commercial land parcel with clean legal clearances.
+            Extremely professional team!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #7c3aed, #e11d48);">VS</div>
+            <div class="author-info">
+              <h6>Vikram Singhal</h6>
+              <p>Managing Director, Singhal Capital</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. DUAL AUDIENCE CTA (Antigravity Parity)
+       ========================================================================= -->
+  <section class="dual-cta-section">
+    <div class="container">
+      <div class="dual-cta-grid">
+        <!-- Card 1: Homeowners & Property Buyers -->
+        <div class="cta-card interactive-card">
+          <div class="cta-card-badge">For Homeowners & Real Estate Investors</div>
+          <h3 style="font-size: 2rem; font-weight: 800;">Build your dream sanctuary or invest in prime properties</h3>
+          <p style="font-size: 1.05rem; line-height: 1.6;">
+            Consult with our interior designers and real estate advisors for bespoke luxury homes and verified
+            high-yield estates.
+          </p>
+          <button class="btn btn-primary" data-open-consultation="interior" data-cursor="✦ Book Consultation">
+            <span>Book Interior / Real Estate Consultation</span>
+          </button>
+        </div>
+
+        <!-- Card 2: Founders & Enterprises -->
+        <div class="cta-card dark-card interactive-card">
+          <div class="cta-card-badge">For Founders & Enterprises</div>
+          <h3 style="font-size: 2rem; font-weight: 800;">Launch modern web, mobile apps & growth campaigns</h3>
+          <p style="font-size: 1.05rem; line-height: 1.6;">
+            Partner with our software engineers and marketing strategists to build, scale, and market your digital
+            platforms.
+          </p>
+          <button class="btn btn-secondary" style="background: #ffffff; color: #10141a;" data-open-consultation="webdev"
+            data-cursor="⚡ Discuss Tech Project">
+            <span>Schedule Digital Strategy Call</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Summary -->
+        <div class="footer-brand-info">
+          <a href="#hero" class="brand-logo" style="text-decoration: none;">
+            <img src="assets/logos/haptags-logo.png" alt="Haptags" class="brand-logo-img">
+            <span class="logo-tag">LLP</span>
+          </a>
+          <p>
+            A multi-disciplinary firm delivering excellence in Website Development, Mobile App Engineering, Digital
+            Marketing, Luxury Interior Design, and Real Estate Agency.
+          </p>
+          <form id="newsletter-form" style="display:flex; gap:8px; margin-top:8px;">
+            <input type="email" placeholder="Enter work email..." required class="form-input"
+              style="padding:10px 14px; font-size:0.85rem;">
+            <button type="submit" class="btn btn-primary btn-compact">Subscribe</button>
+          </form>
+        </div>
+
+        <!-- Column 1: Digital & Marketing -->
+        <div class="footer-column">
+          <h6>Digital & Growth</h6>
+          <ul class="footer-links">
+            <li><a href="#web-development">Website Development</a></li>
+            <li><a href="#app-development">Mobile App Development</a></li>
+            <li><a href="#digital-marketing">Digital Marketing</a></li>
+            <li><a href="#digital-marketing">Social Media Marketing</a></li>
+            <li><a href="#web-development">Cloud Architecture</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Physical Spaces -->
+        <div class="footer-column">
+          <h6>Spaces & Real Estate</h6>
+          <ul class="footer-links">
+            <li><a href="#interior-design">Interior Design & Solutions</a></li>
+            <li><a href="#real-estate">Real Estate Agency</a></li>
+            <li><a href="#interior-design">Luxury Interior Solutions</a></li>
+            <li><a href="#real-estate">Commercial Real Estate</a></li>
+            <li><a href="#real-estate">Land Acquisition Advisory</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Corporate -->
+        <div class="footer-column">
+          <h6>Governance</h6>
+          <ul class="footer-links">
+            <li><a href="#why-haptags">About Haptags LLP</a></li>
+            <li><a href="#" data-open-brochure>Corporate Deck</a></li>
+            <li><a href="#" data-open-consultation>Client Testimonials</a></li>
+            <li><a href="#showcase">Project Portfolio</a></li>
+            <li><a href="#" data-open-consultation>Careers & Partnerships</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-column">
+          <h6>Contact Office</h6>
+          <ul class="footer-links">
+            <li>
+              <span style="color:var(--text-primary); font-weight:700; display:block; margin-bottom:2px;">HQ
+                Address:</span>
+              <span style="color:var(--text-secondary); line-height:1.45; font-size:0.85rem; display:block;">Haptags
+                LLP, Near Maheshwarramma temple road, Mahadevapura, Bangalore - 560048</span>
+            </li>
+            <li style="margin-top:8px;">
+              <span style="color:var(--text-primary); font-weight:700;">Email:</span>
+              <a href="mailto:info@haptags.com"
+                style="color:var(--brand-blue); text-decoration:none; font-weight:600;">info@haptags.com</a>
+            </li>
+            <li>
+              <span style="color:var(--text-primary); font-weight:700;">Call:</span>
+              <a href="tel:+919986861402"
+                style="color:var(--text-secondary); text-decoration:none; font-weight:600;">+91 9986861402</a>
+            </li>
+            <li style="margin-top:4px;">
+              <a href="#" data-open-consultation style="color:var(--brand-blue); font-weight:700;">+ Book Direct
+                Consultation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Haptags LLP. All rights reserved. Registered Limited Liability Partnership.
+        </div>
+        <div style="display:flex; gap:20px;">
+          <a href="#" style="color:var(--text-muted); text-decoration:none;">Privacy Policy</a>
+          <a href="#" style="color:var(--text-muted); text-decoration:none;">Terms of Service</a>
+          <a href="#" style="color:var(--text-muted); text-decoration:none;">LLP Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       10. MODALS & POPUPS
+       ========================================================================= -->
+  <!-- Consultation Modal -->
+  <div id="consultation-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close Modal">&times;</button>
+
+      <div class="pill-badge" style="margin-bottom: 12px;">
+        <span class="pill-badge-dot"></span>
+        <span>Haptags LLP Strategy Consultation</span>
+      </div>
+
+      <h3 style="font-size: 1.8rem; margin-bottom: 6px;">Request a Direct Consultation</h3>
+      <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 20px;">
+        Connect directly with our leads in Web Development, Mobile Apps, Digital Marketing, Interior Design, or Real
+        Estate.
+      </p>
+
+      <!-- Direct Contact Quick Bar -->
+      <div
+        style="background:var(--bg-secondary); border:1px solid var(--border-card); border-radius:var(--radius-md); padding:14px 18px; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; font-size:0.85rem;">
+        <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+          <div><strong style="color:var(--text-primary);">Email:</strong> <a href="mailto:info@haptags.com"
+              style="color:var(--brand-blue); text-decoration:none; font-weight:600;">info@haptags.com</a></div>
+          <div><strong style="color:var(--text-primary);">Call Office:</strong> <a href="tel:+919986861402"
+              style="color:var(--brand-blue); text-decoration:none; font-weight:600;">+91 9986861402</a></div>
+        </div>
+        <div
+          style="color:var(--text-secondary); font-size:0.8rem; border-top:1px solid var(--border-subtle); padding-top:6px;">
+          <strong>HQ:</strong> Haptags LLP, Near Maheshwarramma temple road, Mahadevapura, Bangalore - 560048
+        </div>
+      </div>
+
+      <form id="consultation-form">
+        <!-- Anti-spam Honeypot -->
+        <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="form_type" value="consultation">
+
+        <div class="form-group">
+          <label class="form-label" for="consultation-name">Full Name / Organization <span
+              style="color:var(--brand-accent);">*</span></label>
+          <input type="text" id="consultation-name" name="name" required class="form-input"
+            placeholder="e.g. Rahul Sharma / Apex Enterprises" autocomplete="name">
+        </div>
+
+        <div class="form-grid-2col">
+          <div class="form-group">
+            <label class="form-label" for="consultation-email">Email Address <span
+                style="color:var(--brand-accent);">*</span></label>
+            <input type="email" id="consultation-email" name="email" required class="form-input"
+              placeholder="name@company.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="consultation-phone">Phone / WhatsApp</label>
+            <input type="tel" id="consultation-phone" name="phone" class="form-input" placeholder="+91 98765 43210"
+              autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="consultation-vertical-select">Primary Service of Interest</label>
+          <select id="consultation-vertical-select" name="service" class="form-select">
+            <option value="webdev">Website Development</option>
+            <option value="appdev">Mobile App Development</option>
+            <option value="marketing">Digital & Social Media Marketing</option>
+            <option value="interior">Interior Design & Solutions</option>
+            <option value="realestate">Real Estate Agency & Advisory</option>
+            <option value="all">Multiple Services / Unified Project</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="consultation-message">Project Details / Goals</label>
+          <textarea id="consultation-message" name="message" class="form-textarea" rows="3"
+            placeholder="Briefly describe your project requirements, space dimensions, or digital marketing goals..."></textarea>
+        </div>
+
+        <button type="submit" id="consultation-submit-btn" class="btn btn-primary"
+          style="width: 100%; margin-top: 10px;">
+          <span class="btn-text">Submit Consultation Request</span>
+          <svg class="btn-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Brochure Download Modal -->
+  <div id="brochure-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close Modal">&times;</button>
+
+      <div class="pill-badge" style="margin-bottom: 12px;">
+        <span class="pill-badge-dot" style="background: var(--brand-purple);"></span>
+        <span>Executive Corporate Deck</span>
+      </div>
+
+      <h3 style="font-size: 1.8rem; margin-bottom: 6px;">Download Corporate Portfolio</h3>
+      <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 24px;">
+        Receive the complete Haptags LLP corporate profile with case studies for Website Dev, App Dev, Digital
+        Marketing, Luxury Interiors, and Real Estate Agency.
+      </p>
+
+      <form id="brochure-form">
+        <!-- Anti-spam Honeypot -->
+        <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="form_type" value="brochure">
+
+        <div class="form-group">
+          <label class="form-label" for="brochure-name">Your Name <span
+              style="color:var(--brand-accent);">*</span></label>
+          <input type="text" id="brochure-name" name="name" required class="form-input" placeholder="e.g. Priya Nair"
+            autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="brochure-email">Work Email <span
+              style="color:var(--brand-accent);">*</span></label>
+          <input type="email" id="brochure-email" name="email" required class="form-input"
+            placeholder="priya@domain.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="brochure-service">Primary Interest</label>
+          <select id="brochure-service" name="service" class="form-select">
+            <option value="all">Comprehensive 5-Service Profile (PDF)</option>
+            <option value="webdev">Website & Mobile App Case Studies</option>
+            <option value="marketing">Digital Marketing & Social Media Growth</option>
+            <option value="interior">Luxury Interior Design Catalog</option>
+            <option value="realestate">Real Estate Agency & Advisory Portfolio</option>
+          </select>
+        </div>
+        <button type="submit" id="brochure-submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          <span class="btn-text">Instant Download</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="mobile-drawer-backdrop" class="mobile-drawer-backdrop"></div>
+
+  <!-- Premium Mobile Navigation Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation Menu">
+    <div>
+      <div class="mobile-drawer-header">
+        <a href="#hero" class="brand-logo" style="text-decoration:none;">
+          <img src="assets/logos/haptags-logo.png" alt="Haptags" class="brand-logo-img">
+          <span class="logo-tag">LLP</span>
+        </a>
+        <button id="mobile-drawer-close" class="mobile-drawer-close" aria-label="Close Mobile Menu">&times;</button>
+      </div>
+
+      <div
+        style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px;">
+        Core Services
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li>
+          <a href="#web-development" class="mobile-nav-link">
+            <span class="mobile-nav-icon" style="color:var(--brand-blue);">🌐</span>
+            <span>Website Development</span>
+          </a>
+        </li>
+        <li>
+          <a href="#app-development" class="mobile-nav-link">
+            <span class="mobile-nav-icon" style="color:var(--brand-purple);">📱</span>
+            <span>Mobile App Development</span>
+          </a>
+        </li>
+        <li>
+          <a href="#digital-marketing" class="mobile-nav-link">
+            <span class="mobile-nav-icon" style="color:var(--brand-rose);">📈</span>
+            <span>Digital & Social Marketing</span>
+          </a>
+        </li>
+        <li>
+          <a href="#interior-design" class="mobile-nav-link">
+            <span class="mobile-nav-icon" style="color:var(--brand-amber);">🛋️</span>
+            <span>Luxury Interior Solutions</span>
+          </a>
+        </li>
+        <li>
+          <a href="#real-estate" class="mobile-nav-link">
+            <span class="mobile-nav-icon" style="color:var(--brand-emerald);">🏙️</span>
+            <span>Real Estate Agency & Advisory</span>
+          </a>
+        </li>
+        <li>
+          <a href="#why-haptags" class="mobile-nav-link" style="border-color:var(--border-subtle);">
+            <span class="mobile-nav-icon" style="color:var(--brand-blue);">✦</span>
+            <span>About Haptags LLP</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Quick Office Contact Bar -->
+      <div class="mobile-contact-card">
+        <div
+          style="font-weight:700; color:var(--text-primary); font-size:0.8rem; letter-spacing:0.04em; text-transform:uppercase;">
+          Direct Office Support
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span>📞 Phone:</span>
+          <a href="tel:+919986861402" style="color:var(--brand-blue); text-decoration:none; font-weight:600;">+91
+            9986861402</a>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span>✉️ Email:</span>
+          <a href="mailto:info@haptags.com"
+            style="color:var(--brand-blue); text-decoration:none; font-weight:600;">info@haptags.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="display:flex; flex-direction:column; gap:10px; padding-top:16px; border-top:1px solid var(--border-subtle);">
+      <button class="btn btn-primary" data-open-consultation style="width:100%;">
+        <span>✨ Book Direct Consultation</span>
+      </button>
+      <button class="btn btn-secondary" data-open-brochure style="width:100%;">
+        <span>📄 Download Corporate Deck</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
