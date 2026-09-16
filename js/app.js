@@ -11,7 +11,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardSpotlights();
   initModals();
   initMobileMenu();
+  initCopyDeterrents();
 });
+
+/* --------------------------------------------------------------------------
+   0. COPY / INSPECT DETERRENTS
+   Note: this only discourages casual right-click-save / view-source. It
+   cannot stop a determined visitor (curl, view-source:, browser reader
+   mode, or disabling JS all bypass it) — any static site's HTML/CSS/JS is
+   always downloadable by design. Real protection for the file listing
+   concern lives server-side in .htaccess (Options -Indexes).
+   -------------------------------------------------------------------------- */
+function initCopyDeterrents() {
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  document.addEventListener('keydown', (e) => {
+    const key = e.key.toUpperCase();
+    const blockedCombo =
+      key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(key)) ||
+      (e.ctrlKey && key === 'U');
+    if (blockedCombo) e.preventDefault();
+  });
+}
 
 /* --------------------------------------------------------------------------
    1. THEME ENGINE (Antigravity Light / Dark Mode)
@@ -236,6 +258,42 @@ function initCardSpotlights() {
 /* --------------------------------------------------------------------------
    6. MODALS & FORMS
    -------------------------------------------------------------------------- */
+// Per-service brochure PDFs for the five services.
+const BROCHURE_FILES = {
+  webdev: { path: 'assets/brochures/Comprehensive 5-Service Profile.pdf', name: 'Comprehensive 5-Service Profile.pdf' },
+  appdev: { path: 'assets/brochures/Website & Mobile App Case Studies.pdf', name: 'Website & Mobile App Case Studies.pdf' },
+  marketing: { path: 'assets/brochures/Digital Marketing & Social Media Growth.pdf', name: 'Digital Marketing & Social Media Growth.pdf' },
+  interior: { path: 'assets/brochures/Luxury Interior Design Catalog.pdf', name: 'Luxury Interior Design Catalog.pdf' },
+  realestate: { path: 'assets/brochures/Real Estate Agency & Advisory Portfolio.pdf', name: 'Real Estate Agency & Advisory Portfolio.pdf' }
+};
+
+// Force an actual file download (not a preview tab) using the brochure's
+// proper display name, so the saved file is never a random/garbled filename.
+function openAndDownloadBrochure(serviceKey) {
+  const brochure = BROCHURE_FILES[serviceKey] || BROCHURE_FILES.webdev;
+
+  const link = document.createElement('a');
+  link.href = encodeURI(brochure.path);
+  link.download = brochure.name;
+  link.rel = 'noopener';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
+// Require a full name (first + last) and a phone number that includes an
+// ISD/country code, so brochure downloads aren't handed out on obviously
+// fake details.
+function isValidFullName(value) {
+  const trimmed = value.trim().replace(/\s+/g, ' ');
+  return /^[A-Za-z][A-Za-z.'-]*(?: [A-Za-z][A-Za-z.'-]*)+$/.test(trimmed);
+}
+
+function isValidPhoneWithISD(value) {
+  const cleaned = value.trim().replace(/[\s()-]/g, '');
+  return /^\+[1-9]\d{7,14}$/.test(cleaned);
+}
+
 function initModals() {
   const consultationModal = document.getElementById('consultation-modal');
   const brochureModal = document.getElementById('brochure-modal');
@@ -243,6 +301,10 @@ function initModals() {
   const openBrochureBtns = document.querySelectorAll('[data-open-brochure]');
   const closeBtns = document.querySelectorAll('.modal-close-btn');
   const backdrops = document.querySelectorAll('.modal-backdrop');
+
+  // Direct per-card brochure links should use their natural <a href="...pdf">
+  // target and download behavior. Removing the JS interception avoids broken
+  // or redirected file opens and lets the published PDF asset resolve directly.
 
   function openModal(modal) {
     if (!modal) return;
@@ -360,16 +422,38 @@ function initModals() {
     });
   }
 
-  // Handle Brochure Form
+  // Handle Brochure Form — validated instant download, no email dispatch
   const brochureForm = document.getElementById('brochure-form');
   if (brochureForm) {
     brochureForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      submitLeadForm(
-        brochureForm,
-        brochureModal,
-        "📄 Success! The Haptags LLP Executive Corporate Portfolio request has been dispatched to info@haptags.com."
-      );
+
+      const nameInput = document.getElementById('brochure-name');
+      const phoneInput = document.getElementById('brochure-phone');
+      const serviceSelect = document.getElementById('brochure-service');
+
+      const name = nameInput ? nameInput.value : '';
+      const phone = phoneInput ? phoneInput.value : '';
+
+      if (!isValidFullName(name)) {
+        showToast("⚠️ Please enter your full name (first and last).");
+        if (nameInput) nameInput.focus();
+        return;
+      }
+
+      if (!isValidPhoneWithISD(phone)) {
+        showToast("⚠️ Please enter a valid phone number with ISD/country code, e.g. +91 98765 43210.");
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      const serviceKey = serviceSelect ? serviceSelect.value : 'all';
+
+      openAndDownloadBrochure(serviceKey);
+
+      showToast("📄 Thanks! Your brochure has started downloading.");
+      closeModal(brochureModal);
+      brochureForm.reset();
     });
   }
 

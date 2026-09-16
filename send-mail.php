@@ -198,6 +198,17 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// Brochure form submissions must never dispatch an email notification.
+// They are handled on the frontend by clicking the selected brochure asset.
+if ($formType === 'brochure') {
+    http_response_code(200);
+    echo json_encode([
+        "success" => true,
+        "message" => "Brochure request accepted. The brochure will open automatically."
+    ]);
+    exit;
+}
+
 // Map service codes to friendly names
 $serviceMap = [
     'webdev'     => 'Website Development',

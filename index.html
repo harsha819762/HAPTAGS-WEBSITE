@@ -422,6 +422,12 @@
                 <span>Built-in Search Engine Optimization (SEO) & Semantic UI</span>
               </li>
             </ul>
+            <a href="assets/brochures/Comprehensive%205-Service%20Profile.pdf"
+              download="Comprehensive 5-Service Profile.pdf" class="btn btn-secondary btn-compact"
+              data-brochure-asset="webdev" rel="noopener"
+              style="width: 100%; margin-top: 12px;">
+              <span>View Website Development Brochure</span>
+            </a>
           </div>
           <!-- Rich Web Application Browser Window Mockup -->
           <div class="browser-ui-preview">
@@ -505,6 +511,12 @@
                 <span>Seamless App Store & Google Play Store Publishing</span>
               </li>
             </ul>
+            <a href="assets/brochures/Website%20%26%20Mobile%20App%20Case%20Studies.pdf"
+              download="Website & Mobile App Case Studies.pdf" class="btn btn-secondary btn-compact"
+              data-brochure-asset="appdev" rel="noopener"
+              style="width: 100%; margin-top: 12px;">
+              <span>View App Development Brochure</span>
+            </a>
           </div>
           <!-- Rich Smartphone Mobile App Mockup -->
           <div class="phone-ui-preview">
@@ -592,6 +604,12 @@
               <div style="flex:1; background:var(--brand-purple); height:80%; border-radius:3px;"></div>
               <div style="flex:1; background:var(--brand-rose); height:100%; border-radius:3px;"></div>
             </div>
+            <a href="assets/brochures/Digital%20Marketing%20%26%20Social%20Media%20Growth.pdf"
+              download="Digital Marketing & Social Media Growth.pdf" class="btn btn-secondary btn-compact"
+              data-brochure-asset="marketing" rel="noopener"
+              style="width: 100%; margin-top: 12px;">
+              <span>View Digital Marketing Brochure</span>
+            </a>
           </div>
         </div>
 
@@ -628,6 +646,11 @@
           <div class="bento-card-preview" style="margin-top: auto;">
             <img class="bento-card-img" style="height: 150px;" src="assets/images/interior-design.jpg"
               alt="Luxury Living Room Interior Design">
+            <a href="assets/brochures/Luxury%20Interior%20Design%20Catalog.pdf"
+              download="Luxury Interior Design Catalog.pdf" class="btn btn-secondary btn-compact"
+              data-brochure-asset="interior" rel="noopener" style="width: 100%; margin-top: 12px;">
+              <span>View Interior Architecture Brochure</span>
+            </a>
           </div>
         </div>
 
@@ -664,6 +687,12 @@
           <div class="bento-card-preview" style="margin-top: auto;">
             <img class="bento-card-img" style="height: 150px;" src="assets/images/real-estate.jpg"
               alt="Haptags Luxury Architecture & Real Estate">
+            <a href="assets/brochures/Real%20Estate%20Agency%20%26%20Advisory%20Portfolio.pdf"
+              download="Real Estate Agency & Advisory Portfolio.pdf" class="btn btn-secondary btn-compact"
+              data-brochure-asset="realestate" rel="noopener"
+              style="width: 100%; margin-top: 12px;">
+              <span>View Real Estate Brochure</span>
+            </a>
           </div>
         </div>
       </div>
@@ -1016,7 +1045,7 @@
         <input type="hidden" name="form_type" value="brochure">
 
         <div class="form-group">
-          <label class="form-label" for="brochure-name">Your Name <span
+          <label class="form-label" for="brochure-name">Your Full Name <span
               style="color:var(--brand-accent);">*</span></label>
           <input type="text" id="brochure-name" name="name" required class="form-input" placeholder="e.g. Priya Nair"
             autocomplete="name">
@@ -1028,10 +1057,19 @@
             placeholder="priya@domain.com" autocomplete="email">
         </div>
         <div class="form-group">
+          <label class="form-label" for="brochure-phone">Contact Number (with ISD Code) <span
+              style="color:var(--brand-accent);">*</span></label>
+          <input type="tel" id="brochure-phone" name="phone" required class="form-input"
+            placeholder="+91 98765 43210" autocomplete="tel">
+          <span style="display:block; font-size:0.78rem; color:var(--text-secondary); margin-top:4px;">
+            Include your country's dial code, e.g. +91, +1, +44.
+          </span>
+        </div>
+        <div class="form-group">
           <label class="form-label" for="brochure-service">Primary Interest</label>
           <select id="brochure-service" name="service" class="form-select">
-            <option value="all">Comprehensive 5-Service Profile (PDF)</option>
-            <option value="webdev">Website & Mobile App Case Studies</option>
+            <option value="webdev">Comprehensive 5-Service Profile (PDF)</option>
+            <option value="appdev">Website & Mobile App Case Studies</option>
             <option value="marketing">Digital Marketing & Social Media Growth</option>
             <option value="interior">Luxury Interior Design Catalog</option>
             <option value="realestate">Real Estate Agency & Advisory Portfolio</option>

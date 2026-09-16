@@ -1,0 +1,46 @@
+# -----------------------------------------------------------------------------
+# HAPTAGS LLP — Basic Hardening for Apache / Hostinger
+# -----------------------------------------------------------------------------
+
+# 1. Stop the server from listing folder contents (e.g. /assets/brochures/)
+Options -Indexes
+Options -MultiViews
+
+# 2. Redirect /index.html to the clean root URL so the address bar shows
+#    "haptags.com" instead of "haptags.com/index.html"
+RewriteEngine On
+RewriteCond %{THE_REQUEST} /index\.html[?\s] [NC]
+RewriteRule ^ /? [R=301,L]
+
+# 3. Block public access to config, docs, and version-control files that
+#    have no reason to ever be served to a browser
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.(md|json|lock|log|bak|zip|sql)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_alias.c>
+  RedirectMatch 404 /\.git
+</IfModule>
+
+# 4. Basic response headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
