@@ -143,7 +143,7 @@ const SHOWCASE_ITEMS = {
   webdev: {
     title: "High-Performance Website Development",
     desc: "Crafting blazing-fast modern web applications, Next.js architecture, interactive digital experiences, and enterprise-grade web platforms.",
-    image: "assets/images/web-development.jpg",
+    image: "assets/images/web-development.png",
     stats: [
       { num: "<100ms", label: "Global Page Load Speed" },
       { num: "100%", label: "Responsive & SEO Optimized" },
@@ -154,7 +154,7 @@ const SHOWCASE_ITEMS = {
   appdev: {
     title: "iOS & Android Mobile App Development",
     desc: "Engineering native and cross-platform mobile apps with fluid animations, intuitive UI/UX, robust offline sync, and scalable cloud backends.",
-    image: "assets/images/app-development.jpg",
+    image: "assets/images/app-development.png",
     stats: [
       { num: "4.9★", label: "Avg App Store Rating" },
       { num: "iOS & Android", label: "Cross-Platform Tech" },
@@ -165,7 +165,7 @@ const SHOWCASE_ITEMS = {
   marketing: {
     title: "Performance Digital & Social Media Marketing",
     desc: "Data-driven customer acquisition, 360° social media growth, high-conversion real estate & brand ad funnels, and viral creative production.",
-    image: "assets/images/digital-marketing.jpg",
+    image: "assets/images/digital-marketing.png",
     stats: [
       { num: "10x", label: "Avg. Pipeline ROI" },
       { num: "4.5M+", label: "Social Impressions" },
@@ -176,7 +176,7 @@ const SHOWCASE_ITEMS = {
   interior: {
     title: "Luxury Interior Design & Solutions",
     desc: "Bespoke high-end residential penthouses, executive suites, comprehensive spatial execution, photorealistic 3D renders, and modular styling.",
-    image: "assets/images/interior-design.jpg",
+    image: "assets/images/interior-design.png",
     stats: [
       { num: "350+", label: "Luxury Spaces Delivered" },
       { num: "45 Days", label: "Avg Project Cycle" },
@@ -187,7 +187,7 @@ const SHOWCASE_ITEMS = {
   realestate: {
     title: "Real Estate Agency & Advisory",
     desc: "Guiding clients through high-yield land acquisitions, luxury residential villas, premium commercial spaces, and strategic property investments.",
-    image: "assets/images/real-estate.jpg",
+    image: "assets/images/real-estate.png",
     stats: [
       { num: "₹250Cr+", label: "Property Portfolio" },
       { num: "1.2M+", label: "Sq. Ft. Advisory" },
