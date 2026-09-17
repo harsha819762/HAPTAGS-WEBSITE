@@ -65,20 +65,81 @@
   .hg-thanks{ text-align:center; padding:30px 10px; }
   .hg-thanks h3{ color:var(--hg-teal); font-size:19px; margin-bottom:6px; }
   .hg-gate{ text-align:center; padding:34px 12px; }
-  .hg-gate h3{ color:var(--hg-navy); font-size:19px; margin-bottom:8px; }
+  .hg-gate h3{ color:var(--hg-ink); font-size:19px; font-weight:700; margin-bottom:8px; }
   .hg-gate p{ font-size:13.5px; opacity:0.85; }
-  .hg-giftbox{ font-size:64px; line-height:1; margin:0 0 16px; display:inline-block;
-    animation:hg-gift-bob 2.4s ease-in-out infinite; filter:drop-shadow(0 8px 12px rgba(11,31,58,0.18)); }
-  @keyframes hg-gift-bob{
-    0%,100%{ transform:translateY(0) rotate(-4deg); }
-    25%{ transform:translateY(-9px) rotate(3deg); }
-    50%{ transform:translateY(-2px) rotate(-2deg); }
-    75%{ transform:translateY(-6px) rotate(4deg); }
-  }
   .hg-countdown{ display:flex; justify-content:center; gap:10px; margin:18px 0 6px; flex-wrap:wrap; }
   .hg-count-box{ background:var(--hg-navy); border-radius:8px; padding:10px 6px; min-width:58px; }
   .hg-count-num{ font-size:22px; font-weight:800; color:var(--hg-gold); line-height:1; font-variant-numeric:tabular-nums; }
   .hg-count-label{ font-size:9px; text-transform:uppercase; letter-spacing:0.5px; color:var(--hg-teal-lt); margin-top:4px; }
+
+  /* Launching-soon panel (pre-offer countdown) — dark tech "launch" banner aesthetic */
+  #hg-not-started.hg-gate{ padding:0; }
+  .hg-launch-panel{ position:relative; overflow:hidden; border-radius:14px; padding:32px 20px 26px;
+    background:radial-gradient(ellipse at 50% -20%, #1E3E76 0%, #0B1F3A 45%, #081627 100%);
+    box-shadow:0 16px 34px rgba(8,22,39,0.45); color:#EAF1FF; }
+
+  .hg-arc{ position:absolute; border-radius:50%; pointer-events:none; z-index:0; }
+  .hg-arc.a1{ width:220px; height:220px; top:-120px; left:-100px; border:1px solid rgba(127,216,206,0.22); }
+  .hg-arc.a2{ width:160px; height:160px; top:-80px; left:-60px; border:1px solid rgba(184,144,46,0.3); }
+  .hg-arc.a3{ width:260px; height:260px; bottom:-150px; right:-120px; border:1px solid rgba(127,216,206,0.18); }
+  .hg-arc.a4{ width:180px; height:180px; bottom:-100px; right:-70px; border:1px solid rgba(184,144,46,0.26); }
+
+  .hg-launch-brand{ position:relative; z-index:1; display:flex; align-items:center; justify-content:center;
+    gap:8px; margin-bottom:18px; }
+  .hg-launch-brand-icon{ font-size:16px; }
+  .hg-launch-brand-name{ font-size:12.5px; font-weight:800; letter-spacing:3px; color:#fff; }
+
+  .hg-launch-title{ position:relative; z-index:1; font-size:26px; font-weight:800; margin:0 0 8px; line-height:1.25;
+    background:linear-gradient(90deg,#F5D67B,#F0C64A 40%,#7FD8CE 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:#F0C64A; }
+  .hg-launch-sub{ position:relative; z-index:1; font-size:13px; color:#AFC0DC; margin:0 0 24px; }
+  .hg-launch-sub strong{ color:#F0C64A; }
+
+  .hg-launch-status{ position:relative; z-index:1; max-width:240px; margin:0 auto 24px; }
+  .hg-launch-status-label{ display:block; font-size:11px; font-weight:800; letter-spacing:3px;
+    text-transform:uppercase; color:#EAF1FF; margin-bottom:9px; }
+  .hg-launch-progress{ height:5px; border-radius:999px; background:rgba(255,255,255,0.12); overflow:hidden; }
+  .hg-launch-progress-bar{ height:100%; width:0%; border-radius:999px;
+    background:linear-gradient(90deg,#B8902E,#F0C64A,#7FD8CE); transition:width 1s linear; }
+
+  .hg-launch-mockup{ position:relative; z-index:1; max-width:270px; margin:0 auto 24px; border-radius:12px;
+    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); overflow:hidden;
+    box-shadow:0 12px 26px rgba(0,0,0,0.35); }
+  .hg-mockup-chrome{ display:flex; align-items:center; gap:5px; padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .hg-mockup-dot{ width:7px; height:7px; border-radius:50%; }
+  .hg-mockup-dot.d1{ background:#FF6159; }
+  .hg-mockup-dot.d2{ background:#FFC130; }
+  .hg-mockup-dot.d3{ background:#28C941; }
+  .hg-mockup-screen{ position:relative; height:128px; overflow:hidden;
+    background:radial-gradient(circle at 50% 50%, rgba(240,198,74,0.08), transparent 70%); }
+  .hg-clock-glow{ position:absolute; top:50%; left:50%; width:86px; height:86px; margin:-43px 0 0 -43px;
+    border-radius:50%; background:radial-gradient(circle, rgba(240,198,74,0.45) 0%, rgba(127,216,206,0.25) 55%, transparent 75%);
+    filter:blur(3px); animation:hg-clock-pulse 2.6s ease-in-out infinite; }
+  @keyframes hg-clock-pulse{ 0%,100%{ opacity:0.7; transform:scale(0.95); } 50%{ opacity:1; transform:scale(1.08); } }
+  .hg-clock-ring{ position:absolute; top:50%; left:50%; width:68px; height:68px; margin:-34px 0 0 -34px;
+    border-radius:50%; border:2px solid rgba(240,198,74,0.7); border-top-color:rgba(127,216,206,0.9);
+    animation:hg-clock-spin 4s linear infinite; }
+  @keyframes hg-clock-spin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+  .hg-clock-hand{ position:absolute; top:50%; left:50%; background:#EAF1FF; border-radius:2px; transform-origin:50% 100%; }
+  .hg-clock-hand.hour{ width:2.5px; height:15px; animation:hg-clock-hour 9s linear infinite; }
+  .hg-clock-hand.minute{ width:2px; height:23px; animation:hg-clock-minute 3.4s linear infinite; }
+  @keyframes hg-clock-hour{ from{ transform:translate(-50%,-100%) rotate(0deg); } to{ transform:translate(-50%,-100%) rotate(360deg); } }
+  @keyframes hg-clock-minute{ from{ transform:translate(-50%,-100%) rotate(0deg); } to{ transform:translate(-50%,-100%) rotate(360deg); } }
+
+  .hg-launch-panel .hg-countdown{ position:relative; z-index:1; }
+  .hg-launch-panel .hg-count-box{ background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.16); box-shadow:0 4px 10px rgba(0,0,0,0.25); }
+  .hg-launch-panel .hg-count-num{ color:#F0C64A; }
+  .hg-launch-panel .hg-count-label{ color:#AFC0DC; }
+
+  .hg-days-flag{ position:absolute; z-index:2; right:14px; bottom:14px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; width:56px; height:56px; border-radius:10px 10px 10px 3px;
+    background:linear-gradient(135deg,#F0C64A,#B8902E); color:#0B1F3A; box-shadow:0 6px 14px rgba(0,0,0,0.35); }
+  .hg-days-flag-num{ font-size:19px; font-weight:900; line-height:1; }
+  .hg-days-flag-label{ font-size:7px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px;
+    line-height:1.15; text-align:center; margin-top:2px; }
+
+  .hg-launch-window{ position:relative; z-index:1; font-size:11.5px; color:#8FA4BE; margin-top:8px; }
   .hg-ticket{ position:relative; display:flex; max-width:400px; margin:20px auto 8px;
     background:linear-gradient(135deg,#FFE59A 0%,#F0C64A 22%,#D4A017 55%,#B8902E 78%,#8B6914 100%);
     border-radius:16px; box-shadow:0 12px 28px rgba(139,105,20,0.4), inset 0 0 0 1px rgba(255,255,255,0.35);
@@ -225,14 +286,54 @@
     </div>
 
     <div id="hg-not-started" class="hg-gate" style="display:none;">
-      <div class="hg-giftbox" aria-hidden="true">🎁</div>
-      <h3>Your special offer is on its way</h3>
-      <p>Opens on <strong>21 September 2026, 12:00 AM (IST)</strong> and stays open for 48 hours.</p>
-      <div class="hg-countdown" id="hg-countdown">
-        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-days">00</div><div class="hg-count-label">Days</div></div>
-        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-hours">00</div><div class="hg-count-label">Hours</div></div>
-        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-mins">00</div><div class="hg-count-label">Mins</div></div>
-        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-secs">00</div><div class="hg-count-label">Secs</div></div>
+      <div class="hg-launch-panel">
+        <span class="hg-arc a1" aria-hidden="true"></span>
+        <span class="hg-arc a2" aria-hidden="true"></span>
+        <span class="hg-arc a3" aria-hidden="true"></span>
+        <span class="hg-arc a4" aria-hidden="true"></span>
+
+        <div class="hg-launch-brand">
+          <span class="hg-launch-brand-icon" aria-hidden="true">🎁</span>
+          <span class="hg-launch-brand-name">HAPTAGS</span>
+        </div>
+
+        <h3 class="hg-launch-title">Countdown Begins!</h3>
+        <p class="hg-launch-sub">Get ready to unlock a <strong>Free Website Build</strong> with Haptags LLP.</p>
+
+        <div class="hg-launch-status">
+          <span class="hg-launch-status-label">Launching Soon</span>
+          <div class="hg-launch-progress">
+            <div class="hg-launch-progress-bar" id="hg-launch-progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="hg-launch-mockup" aria-hidden="true">
+          <div class="hg-mockup-chrome">
+            <span class="hg-mockup-dot d1"></span>
+            <span class="hg-mockup-dot d2"></span>
+            <span class="hg-mockup-dot d3"></span>
+          </div>
+          <div class="hg-mockup-screen">
+            <div class="hg-clock-glow"></div>
+            <div class="hg-clock-ring"></div>
+            <div class="hg-clock-hand hour"></div>
+            <div class="hg-clock-hand minute"></div>
+          </div>
+        </div>
+
+        <div class="hg-countdown" id="hg-countdown">
+          <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-days">00</div><div class="hg-count-label">Days</div></div>
+          <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-hours">00</div><div class="hg-count-label">Hours</div></div>
+          <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-mins">00</div><div class="hg-count-label">Mins</div></div>
+          <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-secs">00</div><div class="hg-count-label">Secs</div></div>
+        </div>
+
+        <p class="hg-launch-window">Opens <strong>21 Sept 2026, 12:00 AM (IST)</strong> &bull; stays open for 48 hours</p>
+
+        <div class="hg-days-flag">
+          <span class="hg-days-flag-num" id="hg-days-flag-num">0</span>
+          <span class="hg-days-flag-label">Days<br>To Go</span>
+        </div>
       </div>
     </div>
 
@@ -247,6 +348,7 @@
 (function(){
   var OFFER_START = new Date('2026-09-21T00:00:00+05:30').getTime();
   var OFFER_END   = new Date('2026-09-23T00:00:00+05:30').getTime();
+  var TEASER_START = OFFER_START - (7 * 86400000); // decorative anchor for the progress bar only
 
   var formArea = document.getElementById('hg-form-area');
   var notStarted = document.getElementById('hg-not-started');
@@ -258,6 +360,8 @@
   var cdHours = document.getElementById('hg-cd-hours');
   var cdMins = document.getElementById('hg-cd-mins');
   var cdSecs = document.getElementById('hg-cd-secs');
+  var launchProgressBar = document.getElementById('hg-launch-progress-bar');
+  var daysFlagNum = document.getElementById('hg-days-flag-num');
 
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
 
@@ -285,6 +389,16 @@
       cdHours.textContent = pad(hours);
       cdMins.textContent = pad(mins);
       cdSecs.textContent = pad(secs);
+
+      if (launchProgressBar){
+        var progressPct = ((now - TEASER_START) / (OFFER_START - TEASER_START)) * 100;
+        progressPct = Math.max(2, Math.min(100, progressPct));
+        launchProgressBar.style.width = progressPct + '%';
+      }
+
+      if (daysFlagNum){
+        daysFlagNum.textContent = Math.max(1, Math.ceil(remaining / 86400000));
+      }
     }
   }
 
