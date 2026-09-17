@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Haptags Special Offer - Website Development Enquiry Form</title>
+<script src="js/qrcode.min.js"></script>
+<style>
+  html, body{ margin:0; padding:0; }
+  :root{
+    --hg-navy:#0B1F3A; --hg-navy-dk:#081627; --hg-teal:#1B6E75; --hg-teal-lt:#BFD9DA;
+    --hg-gold:#B8902E; --hg-ink:#1C1E22; --hg-paper:#FBFAF6; --hg-rule:#D9D3C4;
+    --hg-paper-dark:#151A22; --hg-card-dark:#1C222C; --hg-rule-dark:#33394450;
+  }
+  [data-mode="dark"]{ }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --hg-paper:#12161D; --hg-rule:#2B313C; --hg-ink:#E7E6E1;
+    }
+  }
+  :root[data-theme="dark"]{
+    --hg-paper:#12161D; --hg-rule:#2B313C; --hg-ink:#E7E6E1;
+  }
+  body{ background:var(--hg-paper); padding:24px 12px; }
+  .hg-wrap{ font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif; color:var(--hg-ink);
+    max-width:640px; margin:0 auto; }
+  .hg-banner{ background:var(--hg-navy); border-radius:10px 10px 0 0; padding:26px 28px 20px;
+    position:relative; overflow:hidden; }
+  .hg-banner::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:4px; background:var(--hg-navy-dk); }
+  .hg-word{ color:#fff; font-size:26px; font-weight:700; letter-spacing:0.5px; margin:0; }
+  .hg-tag{ color:var(--hg-teal-lt); font-size:11px; letter-spacing:1px; margin:4px 0 0; text-transform:uppercase; }
+  .hg-sub{ color:#8FA4BE; font-size:10.5px; margin:14px 0 0; }
+  .hg-ribbon{ position:absolute; top:26px; right:28px; background:var(--hg-gold); color:var(--hg-navy-dk);
+    font-weight:700; font-size:11.5px; padding:7px 14px; border-radius:5px; }
+  .hg-card{ background:var(--hg-paper); border:1px solid var(--hg-rule); border-top:none;
+    border-radius:0 0 10px 10px; padding:28px; }
+  .hg-title{ font-size:19px; font-weight:700; color:var(--hg-teal); margin:0 0 4px; }
+  .hg-desc{ font-size:13px; color:var(--hg-ink); opacity:0.85; margin:0 0 6px; font-style:italic; }
+  .hg-window{ font-size:11.5px; color:var(--hg-gold); font-weight:700; margin:0 0 18px; letter-spacing:0.2px; }
+  .hg-gold-rule{ height:2px; background:var(--hg-gold); border:none; margin:0 0 22px; }
+  .hg-row{ display:flex; gap:16px; margin-bottom:18px; }
+  .hg-field{ flex:1; min-width:0; }
+  .hg-label{ display:block; font-size:11px; font-weight:700; color:var(--hg-teal); letter-spacing:0.4px;
+    text-transform:uppercase; margin-bottom:6px; }
+  .hg-hint{ font-size:11px; color:var(--hg-ink); opacity:0.6; font-style:italic; margin:5px 0 0; }
+  .hg-input, .hg-textarea{ width:100%; box-sizing:border-box; border:1px solid var(--hg-rule);
+    border-radius:6px; padding:9px 11px; font-size:13.5px; font-family:inherit; color:var(--hg-ink);
+    background:var(--hg-paper); }
+  .hg-input:focus, .hg-textarea:focus{ outline:none; border-color:var(--hg-teal); }
+  .hg-textarea{ resize:vertical; min-height:52px; }
+  .hg-upload{ border:1.5px dashed var(--hg-rule); border-radius:6px; padding:14px; text-align:center;
+    cursor:pointer; margin-top:8px; transition:border-color .15s; }
+  .hg-upload:hover{ border-color:var(--hg-teal); }
+  .hg-upload input{ display:none; }
+  .hg-upload-btn{ display:inline-flex; align-items:center; gap:6px; background:var(--hg-teal); color:#fff;
+    border:none; border-radius:5px; padding:7px 14px; font-size:12.5px; font-weight:600; cursor:pointer; }
+  .hg-upload-btn:hover{ background:var(--hg-navy); }
+  .hg-file-name{ font-size:12px; color:var(--hg-ink); margin-top:8px; word-break:break-all; }
+  .hg-error{ font-size:11.5px; color:#B34141; margin-top:5px; }
+  .hg-submit{ width:100%; background:var(--hg-navy); color:#fff; border:none; border-radius:7px;
+    padding:13px; font-size:14px; font-weight:700; cursor:pointer; margin-top:8px; }
+  .hg-submit:hover{ background:var(--hg-navy-dk); }
+  .hg-submit:disabled{ opacity:0.6; cursor:not-allowed; }
+  .hg-confidential{ font-size:10.5px; color:var(--hg-ink); opacity:0.55; text-align:center; margin-top:14px; }
+  .hg-thanks{ text-align:center; padding:30px 10px; }
+  .hg-thanks h3{ color:var(--hg-teal); font-size:19px; margin-bottom:6px; }
+  .hg-gate{ text-align:center; padding:34px 12px; }
+  .hg-gate h3{ color:var(--hg-navy); font-size:19px; margin-bottom:8px; }
+  .hg-gate p{ font-size:13.5px; opacity:0.85; }
+  .hg-giftbox{ font-size:64px; line-height:1; margin:0 0 16px; display:inline-block;
+    animation:hg-gift-bob 2.4s ease-in-out infinite; filter:drop-shadow(0 8px 12px rgba(11,31,58,0.18)); }
+  @keyframes hg-gift-bob{
+    0%,100%{ transform:translateY(0) rotate(-4deg); }
+    25%{ transform:translateY(-9px) rotate(3deg); }
+    50%{ transform:translateY(-2px) rotate(-2deg); }
+    75%{ transform:translateY(-6px) rotate(4deg); }
+  }
+  .hg-countdown{ display:flex; justify-content:center; gap:10px; margin:18px 0 6px; flex-wrap:wrap; }
+  .hg-count-box{ background:var(--hg-navy); border-radius:8px; padding:10px 6px; min-width:58px; }
+  .hg-count-num{ font-size:22px; font-weight:800; color:var(--hg-gold); line-height:1; font-variant-numeric:tabular-nums; }
+  .hg-count-label{ font-size:9px; text-transform:uppercase; letter-spacing:0.5px; color:var(--hg-teal-lt); margin-top:4px; }
+  .hg-ticket{ position:relative; display:flex; max-width:400px; margin:20px auto 8px;
+    background:linear-gradient(135deg,#FFE59A 0%,#F0C64A 22%,#D4A017 55%,#B8902E 78%,#8B6914 100%);
+    border-radius:16px; box-shadow:0 12px 28px rgba(139,105,20,0.4), inset 0 0 0 1px rgba(255,255,255,0.35);
+    overflow:hidden; }
+  .hg-ticket::before{ content:""; position:absolute; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(115deg, rgba(255,255,255,0.22) 0 3px, transparent 3px 26px); }
+  .hg-ticket-stub{ position:relative; width:64px; flex:0 0 64px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:6px; padding:14px 4px;
+    border-right:2px dashed rgba(11,31,58,0.45); }
+  .hg-ticket-stub::before, .hg-ticket-stub::after{ content:""; position:absolute; left:50%; width:22px; height:22px;
+    background:var(--hg-paper); border-radius:50%; transform:translateX(-50%); }
+  .hg-ticket-stub::before{ top:-11px; }
+  .hg-ticket-stub::after{ bottom:-11px; }
+  .hg-ticket-stub-icon{ font-size:22px; }
+  .hg-ticket-stub-text{ writing-mode:vertical-rl; text-orientation:mixed; transform:rotate(180deg);
+    font-size:10px; font-weight:800; letter-spacing:1.5px; color:var(--hg-navy-dk); text-transform:uppercase; }
+  .hg-ticket-main{ position:relative; flex:1; padding:16px 18px 18px; text-align:center; }
+  .hg-ticket-ribbon{ position:absolute; top:11px; right:-30px; width:120px; padding:3px 0;
+    background:var(--hg-navy); color:var(--hg-gold); font-size:10.5px; font-weight:800; letter-spacing:1px;
+    text-transform:uppercase; text-align:center; transform:rotate(40deg); box-shadow:0 2px 6px rgba(0,0,0,0.25); }
+  .hg-ticket-brand{ font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+    color:var(--hg-navy-dk); margin-bottom:10px; }
+  .hg-ticket-sparkle{ position:absolute; font-size:14px; opacity:0.85; animation:hg-sparkle-twinkle 1.8s ease-in-out infinite; }
+  @keyframes hg-sparkle-twinkle{ 0%,100%{ opacity:0.3; transform:scale(0.85); } 50%{ opacity:1; transform:scale(1.1); } }
+  .hg-scratch-stage{ position:relative; width:200px; height:200px; margin:0 auto;
+    border-radius:12px; overflow:hidden; box-shadow:0 4px 14px rgba(11,31,58,0.3), 0 0 0 3px rgba(255,255,255,0.5); }
+  .hg-qr-target{ position:absolute; inset:0; background:#fff; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; padding:14px; box-sizing:border-box; }
+  .hg-qr-target svg{ width:130px; height:130px; }
+  .hg-coupon-code{ margin-top:10px; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12px;
+    color:var(--hg-navy); letter-spacing:0.4px; text-align:center; word-break:break-all; }
+  .hg-scratch-canvas{ position:absolute; inset:0; width:100%; height:100%; cursor:grab; touch-action:none; }
+  .hg-reveal-btn{ display:block; margin:12px auto 0; background:none; border:none; color:var(--hg-navy-dk);
+    font-size:11.5px; font-weight:600; text-decoration:underline; cursor:pointer; padding:4px; }
+  .hg-winner-badge{ display:inline-block; background:var(--hg-gold); color:var(--hg-navy-dk); font-weight:700;
+    font-size:11px; letter-spacing:0.4px; text-transform:uppercase; padding:5px 12px; border-radius:5px; margin-bottom:10px; }
+</style>
+</head>
+<body>
+<div class="hg-wrap">
+  <div class="hg-banner">
+    <p class="hg-word">HAPTAGS</p>
+    <p class="hg-tag">Web Development &amp; Digital Solutions</p>
+    <p class="hg-sub">Haptags LLP &bull; LLP No. ACS-0435 &bull; Bengaluru, India</p>
+    <div class="hg-ribbon">SPECIAL OFFER</div>
+  </div>
+
+  <div class="hg-card">
+    <div id="hg-form-area" style="display:none;">
+      <p class="hg-title">Website development enquiry form</p>
+      <p class="hg-desc">Share your details below and we'll prepare your special-offer proposal.</p>
+      <p class="hg-window">Offer open: 21 Sept 2026, 12:00 AM &ndash; 23 Sept 2026, 12:00 AM (IST)</p>
+      <hr class="hg-gold-rule" />
+
+      <div class="hg-row">
+        <div class="hg-field">
+          <label class="hg-label">Full name</label>
+          <input class="hg-input" id="f-name" placeholder="Your full name" />
+        </div>
+        <div class="hg-field">
+          <label class="hg-label">Email address</label>
+          <input class="hg-input" id="f-email" placeholder="name@example.com" />
+        </div>
+      </div>
+
+      <div class="hg-row">
+        <div class="hg-field">
+          <label class="hg-label">Contact number</label>
+          <input class="hg-input" id="f-contact" placeholder="+91 90000 00000" />
+        </div>
+        <div class="hg-field">
+          <label class="hg-label">Organisation name</label>
+          <input class="hg-input" id="f-org" placeholder="Company or business name" />
+        </div>
+      </div>
+
+      <div class="hg-row">
+        <div class="hg-field">
+          <label class="hg-label">Address</label>
+          <textarea class="hg-textarea" id="f-address" placeholder="Postal address"></textarea>
+        </div>
+      </div>
+
+      <div class="hg-row">
+        <div class="hg-field">
+          <label class="hg-label">Government ID (Aadhar / PAN)</label>
+          <input class="hg-input" id="f-govtid" placeholder="ID number" />
+          <div class="hg-upload" id="hg-upload-zone">
+            <label class="hg-upload-btn" for="f-govtid-file">Upload ID copy</label>
+            <input type="file" id="f-govtid-file" accept="image/*,.pdf" />
+            <div class="hg-file-name" id="hg-file-name">No file selected &mdash; JPG, PNG or PDF, up to 5MB</div>
+          </div>
+          <p class="hg-hint">Collected only for KYC and invoicing purposes and kept confidential.</p>
+        </div>
+      </div>
+
+      <div class="hg-row">
+        <div class="hg-field">
+          <label class="hg-label">Others</label>
+          <textarea class="hg-textarea" id="f-others" placeholder="Project details, preferred domain, timeline, budget, etc."></textarea>
+        </div>
+      </div>
+
+      <input type="text" id="f-gotcha" name="_gotcha" style="position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" />
+
+      <div id="hg-form-error" class="hg-error" style="display:none;"></div>
+      <button class="hg-submit" id="hg-submit-btn">Submit enquiry</button>
+      <p class="hg-confidential">Your information is treated as confidential and used solely to process this enquiry.</p>
+    </div>
+
+    <div id="hg-thanks" class="hg-thanks" style="display:none;">
+      <h3>Thank you</h3>
+      <p style="font-size:13.5px;">We've received your details. Our team will get back to you shortly with your special-offer proposal.</p>
+      <p style="font-size:12.5px; opacity:0.75;" id="hg-thanks-coupon-note"></p>
+    </div>
+
+    <div id="hg-winner" class="hg-thanks" style="display:none;">
+      <div class="hg-winner-badge">🎉 You're a winner</div>
+      <h3>Free website unlocked!</h3>
+      <p style="font-size:13.5px;">You're one of our first 25 enquiries. Scratch the ticket below to reveal your unique QR code and serial number.</p>
+
+      <div class="hg-ticket">
+        <span class="hg-ticket-sparkle" style="top:8px; left:8px;">✨</span>
+        <span class="hg-ticket-sparkle" style="bottom:10px; left:14px; animation-delay:0.6s;">⭐</span>
+        <div class="hg-ticket-ribbon">Winner</div>
+        <div class="hg-ticket-stub">
+          <div class="hg-ticket-stub-icon">🎁</div>
+          <div class="hg-ticket-stub-text">FREE WEBSITE</div>
+        </div>
+        <div class="hg-ticket-main">
+          <div class="hg-ticket-brand">Haptags Special Offer</div>
+          <div class="hg-scratch-stage" id="hg-scratch-stage">
+            <div class="hg-qr-target" id="hg-qr-target">
+              <div id="hg-qr-svg-holder"></div>
+              <div class="hg-coupon-code" id="hg-coupon-code-text"></div>
+            </div>
+            <canvas class="hg-scratch-canvas" id="hg-scratch-canvas"></canvas>
+          </div>
+          <button type="button" class="hg-reveal-btn" id="hg-reveal-btn">Can't scratch? Tap to reveal</button>
+        </div>
+      </div>
+
+      <p class="hg-hint" style="margin-top:16px;">Enquiry #<strong id="hg-winner-seq"></strong> of the first 25 &bull; We've also emailed your code to you &bull; Screenshot this ticket and share it with us at <a href="mailto:info@haptags.com">info@haptags.com</a> or WhatsApp to redeem your free website build.</p>
+    </div>
+
+    <div id="hg-not-started" class="hg-gate" style="display:none;">
+      <div class="hg-giftbox" aria-hidden="true">🎁</div>
+      <h3>Your special offer is on its way</h3>
+      <p>Opens on <strong>21 September 2026, 12:00 AM (IST)</strong> and stays open for 48 hours.</p>
+      <div class="hg-countdown" id="hg-countdown">
+        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-days">00</div><div class="hg-count-label">Days</div></div>
+        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-hours">00</div><div class="hg-count-label">Hours</div></div>
+        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-mins">00</div><div class="hg-count-label">Mins</div></div>
+        <div class="hg-count-box"><div class="hg-count-num" id="hg-cd-secs">00</div><div class="hg-count-label">Secs</div></div>
+      </div>
+    </div>
+
+    <div id="hg-expired" class="hg-gate" style="display:none;">
+      <h3>This special offer has closed</h3>
+      <p>The 48-hour enquiry window (21&ndash;23 September 2026) has ended. Please reach out to us directly at <a href="mailto:info@haptags.com">info@haptags.com</a> for pricing.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var OFFER_START = new Date('2026-09-21T00:00:00+05:30').getTime();
+  var OFFER_END   = new Date('2026-09-23T00:00:00+05:30').getTime();
+
+  var formArea = document.getElementById('hg-form-area');
+  var notStarted = document.getElementById('hg-not-started');
+  var expired = document.getElementById('hg-expired');
+  var thanks = document.getElementById('hg-thanks');
+  var winner = document.getElementById('hg-winner');
+
+  var cdDays = document.getElementById('hg-cd-days');
+  var cdHours = document.getElementById('hg-cd-hours');
+  var cdMins = document.getElementById('hg-cd-mins');
+  var cdSecs = document.getElementById('hg-cd-secs');
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  var currentState = null;
+  function tick(){
+    if (thanks.style.display === 'block' || winner.style.display === 'block') return;
+
+    var now = Date.now();
+    var state = (now < OFFER_START) ? 'not-started' : (now >= OFFER_END ? 'expired' : 'active');
+
+    if (state !== currentState){
+      notStarted.style.display = (state === 'not-started') ? 'block' : 'none';
+      expired.style.display = (state === 'expired') ? 'block' : 'none';
+      formArea.style.display = (state === 'active') ? 'block' : 'none';
+      currentState = state;
+    }
+
+    if (state === 'not-started'){
+      var remaining = OFFER_START - now;
+      var days = Math.floor(remaining / 86400000);
+      var hours = Math.floor((remaining % 86400000) / 3600000);
+      var mins = Math.floor((remaining % 3600000) / 60000);
+      var secs = Math.floor((remaining % 60000) / 1000);
+      cdDays.textContent = pad(days);
+      cdHours.textContent = pad(hours);
+      cdMins.textContent = pad(mins);
+      cdSecs.textContent = pad(secs);
+    }
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  var selectedFile = null;
+  var fileInput = document.getElementById('f-govtid-file');
+  var fileNameEl = document.getElementById('hg-file-name');
+  fileInput.addEventListener('change', function(){
+    var f = fileInput.files && fileInput.files[0];
+    if (!f) return;
+    if (f.size > 5 * 1024 * 1024){
+      fileNameEl.textContent = 'That file is too large (max 5MB). Choose another.';
+      fileInput.value = '';
+      selectedFile = null;
+      return;
+    }
+    selectedFile = f;
+    fileNameEl.textContent = 'Attached: ' + f.name;
+  });
+
+  function initScratchCard(){
+    var canvas = document.getElementById('hg-scratch-canvas');
+    var stage = document.getElementById('hg-scratch-stage');
+    var revealBtn = document.getElementById('hg-reveal-btn');
+    if (!canvas || !stage) return;
+
+    var rect = stage.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+
+    var ctx = canvas.getContext('2d');
+    ctx.globalCompositeOperation = 'source-over';
+    var grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    grad.addColorStop(0, '#F0C64A');
+    grad.addColorStop(0.5, '#D4A017');
+    grad.addColorStop(1, '#8B6914');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    for (var i = -canvas.height; i < canvas.width; i += 14){
+      ctx.beginPath();
+      ctx.moveTo(i, canvas.height);
+      ctx.lineTo(i + canvas.height, 0);
+      ctx.lineTo(i + canvas.height + 3, 0);
+      ctx.lineTo(i + 3, canvas.height);
+      ctx.closePath();
+      ctx.fill();
+    }
+    ctx.fillStyle = '#0B1F3A';
+    ctx.font = 'bold 15px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('🪙 SCRATCH HERE', canvas.width / 2, canvas.height / 2 - 10);
+    ctx.font = '11px sans-serif';
+    ctx.fillText('to reveal your QR code', canvas.width / 2, canvas.height / 2 + 12);
+
+    var scratching = false;
+
+    function getPos(e){
+      var r = canvas.getBoundingClientRect();
+      var clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      var clientY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - r.left, y: clientY - r.top };
+    }
+
+    function scratchAt(x, y){
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 20, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function start(e){ scratching = true; var p = getPos(e); scratchAt(p.x, p.y); e.preventDefault(); }
+    function move(e){ if (!scratching) return; var p = getPos(e); scratchAt(p.x, p.y); e.preventDefault(); }
+    function stop(){ scratching = false; }
+
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', stop);
+    canvas.addEventListener('touchstart', start, { passive: false });
+    canvas.addEventListener('touchmove', move, { passive: false });
+    canvas.addEventListener('touchend', stop);
+
+    if (revealBtn){
+      revealBtn.addEventListener('click', function(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+    }
+  }
+
+  function renderCouponQr(code){
+    var holder = document.getElementById('hg-qr-svg-holder');
+    if (!holder || typeof qrcode === 'undefined') return;
+    var qr = qrcode(0, 'M');
+    qr.addData(code);
+    qr.make();
+    holder.innerHTML = qr.createSvgTag({ scalable: true, margin: 1 });
+  }
+
+  var errEl = document.getElementById('hg-form-error');
+  function showError(msg){ errEl.textContent = msg; errEl.style.display = 'block'; }
+  function clearError(){ errEl.style.display = 'none'; }
+
+  ['f-name','f-email','f-contact','f-govtid'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', clearError);
+  });
+
+  document.getElementById('hg-submit-btn').addEventListener('click', function(){
+    var name = document.getElementById('f-name').value.trim();
+    var email = document.getElementById('f-email').value.trim();
+    var contact = document.getElementById('f-contact').value.trim();
+    var org = document.getElementById('f-org').value.trim();
+    var address = document.getElementById('f-address').value.trim();
+    var govtId = document.getElementById('f-govtid').value.trim();
+    var others = document.getElementById('f-others').value.trim();
+    var gotcha = document.getElementById('f-gotcha').value.trim();
+
+    if (!name){ showError('Enter your full name.'); return; }
+    if (!email || email.indexOf('@') === -1){ showError('Enter a valid email address.'); return; }
+    if (!contact){ showError('Enter a contact number.'); return; }
+    if (Date.now() >= OFFER_END){ showError('This special offer window has closed.'); return; }
+    clearError();
+
+    var btn = document.getElementById('hg-submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    var formData = new FormData();
+    formData.append('full_name', name);
+    formData.append('email', email);
+    formData.append('contact_number', contact);
+    formData.append('organisation_name', org);
+    formData.append('address', address);
+    formData.append('govt_id_number', govtId);
+    formData.append('others', others);
+    formData.append('_gotcha', gotcha);
+    if (selectedFile){
+      formData.append('govt_id_file', selectedFile, selectedFile.name);
+    }
+
+    fetch('special-offer-mail.php', {
+      method: 'POST',
+      body: formData
+    }).then(function(response){
+      return response.json().catch(function(){ return null; }).then(function(result){
+        return { ok: response.ok, result: result };
+      });
+    }).then(function(res){
+      if (res.ok && res.result && res.result.success){
+        document.getElementById('hg-form-area').style.display = 'none';
+
+        if (res.result.winner && res.result.coupon_code){
+          document.getElementById('hg-coupon-code-text').textContent = res.result.coupon_code;
+          document.getElementById('hg-winner-seq').textContent = res.result.sequence;
+          renderCouponQr(res.result.coupon_code);
+          document.getElementById('hg-winner').style.display = 'block';
+          initScratchCard();
+        } else {
+          var note = document.getElementById('hg-thanks-coupon-note');
+          if (note && res.result.sequence){
+            note.textContent = "This offer's first 25 free-website coupons have already been claimed — better luck next time!";
+          }
+          document.getElementById('hg-thanks').style.display = 'block';
+        }
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Submit enquiry';
+        showError((res.result && res.result.error) || 'Something went wrong. Please try again.');
+      }
+    }).catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Submit enquiry';
+      showError('Something went wrong. Please check your connection and try again.');
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initMobileMenu();
   initCopyDeterrents();
+  initPromoOfferBar();
 });
 
 /* --------------------------------------------------------------------------
@@ -570,4 +571,84 @@ function initMobileMenu() {
       closeDrawer();
     }
   });
+}
+
+/* --------------------------------------------------------------------------
+   9. SPECIAL OFFER PROMO BAR (48-hour countdown: 21-23 Sept 2026, IST)
+   -------------------------------------------------------------------------- */
+function initPromoOfferBar() {
+  const bar = document.getElementById('promo-offer-bar');
+  const labelEl = document.getElementById('promo-offer-label');
+  const countdownEl = document.getElementById('promo-offer-countdown');
+  const closeBtn = document.getElementById('promo-offer-close');
+  if (!bar || !labelEl || !countdownEl) return;
+
+  let dismissed = false;
+  try {
+    dismissed = sessionStorage.getItem('hg-promo-dismissed') === '1';
+  } catch (e) { /* storage unavailable — treat as not dismissed */ }
+  if (dismissed) return;
+
+  const OFFER_START = new Date('2026-09-21T00:00:00+05:30').getTime();
+  const OFFER_END = new Date('2026-09-23T00:00:00+05:30').getTime();
+
+  const pad = (n) => (n < 10 ? '0' + n : '' + n);
+
+  function setPromoOffset() {
+    const offset = bar.style.display === 'none' ? 0 : bar.offsetHeight;
+    document.documentElement.style.setProperty('--promo-offset', offset + 'px');
+  }
+
+  function tick() {
+    const now = Date.now();
+
+    if (now >= OFFER_END) {
+      bar.style.display = 'none';
+      setPromoOffset();
+      return false;
+    }
+
+    bar.style.display = 'flex';
+
+    if (now < OFFER_START) {
+      const remaining = OFFER_START - now;
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const mins = Math.floor((remaining % 3600000) / 60000);
+      const secs = Math.floor((remaining % 60000) / 1000);
+      labelEl.textContent = 'Special offer opens in';
+      countdownEl.textContent = `${pad(days)}d ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
+    } else {
+      const left = OFFER_END - now;
+      const hours = Math.floor(left / 3600000);
+      const mins = Math.floor((left % 3600000) / 60000);
+      const secs = Math.floor((left % 60000) / 1000);
+      labelEl.textContent = 'Special offer is LIVE — closes in';
+      countdownEl.textContent = `${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
+    }
+
+    setPromoOffset();
+    return true;
+  }
+
+  if (!tick()) return;
+
+  const timerId = setInterval(() => {
+    if (!tick()) clearInterval(timerId);
+  }, 1000);
+
+  window.addEventListener('resize', setPromoOffset);
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      clearInterval(timerId);
+      bar.style.display = 'none';
+      setPromoOffset();
+      try {
+        sessionStorage.setItem('hg-promo-dismissed', '1');
+      } catch (err) { /* storage unavailable — dismissal just won't persist */ }
+    });
+  }
 }

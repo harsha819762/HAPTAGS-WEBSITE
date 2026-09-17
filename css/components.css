@@ -3,11 +3,118 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   0. SPECIAL OFFER PROMO BAR (48-hour countdown: 21-23 Sept 2026, IST)
+   -------------------------------------------------------------------------- */
+.promo-offer-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 44px 10px 16px;
+  background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-rose) 55%, var(--brand-purple) 100%);
+  box-shadow: 0 4px 16px rgba(16, 20, 26, 0.18);
+  font-family: var(--font-body);
+}
+
+.promo-offer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.promo-offer-emoji {
+  font-size: 18px;
+  display: inline-block;
+  animation: promo-gift-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes promo-gift-bob {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-3px) rotate(6deg); }
+}
+
+.promo-offer-text {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.promo-offer-countdown {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 7px;
+  border-radius: 5px;
+  margin-left: 4px;
+}
+
+.promo-offer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  transition: background var(--transition-fast);
+}
+
+.promo-offer-link:hover .promo-offer-cta {
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.promo-offer-close {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.18);
+  border: none;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-offer-close:hover {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+@media (max-width: 767px) {
+  .promo-offer-bar {
+    padding: 8px 38px 8px 12px;
+  }
+  .promo-offer-text,
+  .promo-offer-cta {
+    font-size: 11px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    1. NAVIGATION BAR
    -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
-  top: 0;
+  top: var(--promo-offset, 0px);
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -350,7 +457,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: calc(90px + env(safe-area-inset-top, 0px));
+  padding-top: calc(90px + var(--promo-offset, 0px) + env(safe-area-inset-top, 0px));
   padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px));
   text-align: center;
   overflow: hidden;
@@ -1769,7 +1876,7 @@
      ========================================================================= */
   .hero-section {
     min-height: 100svh !important;
-    padding-top: calc(76px + env(safe-area-inset-top, 0px)) !important;
+    padding-top: calc(76px + var(--promo-offset, 0px) + env(safe-area-inset-top, 0px)) !important;
     padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)) !important;
     display: flex !important;
     flex-direction: column !important;
